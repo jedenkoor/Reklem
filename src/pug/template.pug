@@ -10,11 +10,11 @@ html(lang="ru")
     meta(content="" name="keywords")
     title #{title}
 
-    <meta property="og:site_name" content="Levitacia">
-    <meta property="og:title" content="Levitacia">
-    <meta property="og:description" content="Levitacia">
+    <meta property="og:site_name" content="Reklem">
+    <meta property="og:title" content="Reklem">
+    <meta property="og:description" content="Reklem">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="levitacia.ru">
+    <meta property="og:url" content="reklem.ru">
     <meta property="og:image" content="images/og-share-img.jpg">
     <meta property="og:image:width" content="1800">
     <meta property="og:image:height" content="945">
@@ -27,13 +27,11 @@ html(lang="ru")
     <meta name="msapplication-TileColor" content="#a67ef9">
     <meta name="theme-color" content="#ffffff">
 
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   body
     .wrapper
       include includes/header.pug
-      if(breadcrumbs != 0)
-        include includes/breadcrumbs.pug
       main.content
         block content
       include includes/footer.pug
