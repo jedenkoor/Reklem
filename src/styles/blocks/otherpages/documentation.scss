@@ -1,0 +1,280 @@
+.documentation {
+  &__categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+    padding-left: 0;
+    list-style: none;
+    @include w1023 {
+      grid-gap: 24px;
+    }
+  }
+  &__category {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px 30px 114px;
+    background: var(--neutrals-12);
+    box-shadow: var(--card-shadow);
+    border-radius: 7px;
+    @include w1023 {
+      padding: 114px 30px 30px 30px;
+    }
+  }
+  &-category {
+    &__icon {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background-color: var(--violet-1);
+    }
+    &__title {
+      margin-top: 0;
+      margin-bottom: 13px;
+      font-size: 20px;
+      line-height: 27px;
+      @include w1023 {
+        margin-bottom: 12px;
+        font-size: 18px;
+        line-height: 25px;
+      }
+    }
+    &__list {
+      margin-bottom: 20px;
+      padding-left: 0;
+      list-style: none;
+      @include w1023 {
+        margin-bottom: 25px;
+      }
+    }
+    &__link {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--violet-5);
+      transition: color 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          color: var(--violet-1);
+        }
+      }
+      @include active {
+        &:active {
+          color: var(--violet-1);
+        }
+      }
+      @include w1023 {
+        padding: 13px 0;
+      }
+    }
+    &__more {
+      margin-top: auto;
+      font-weight: 600;
+      color: var(--violet-3);
+      @include hover {
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+      @include active {
+        &:active {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__list {
+    flex: 0 0 48.5%;
+    margin-top: -12px;
+    padding-left: 0;
+    list-style: none;
+  }
+  &__aside {
+    position: sticky;
+    top: 107px;
+    padding: 22px 15px;
+    background: var(--neutrals-12);
+    box-shadow: var(--card-shadow);
+    border-radius: 7px;
+  }
+  &-aside {
+    &__wrap {
+      flex: 0 0 300px;
+    }
+    &__list {
+      padding-left: 0;
+      list-style: none;
+    }
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
+      &--active {
+        .documentation-aside-item__more:after {
+          transform: translate(-5px, -8px) rotate(45deg);
+        }
+        .documentation-aside-item__content {
+          display: block;
+        }
+      }
+    }
+    &-item {
+      &__title {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      &__link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 8px 15px;
+        border-radius: 7px;
+        transition: background-color 0.2s;
+        @include hover {
+          &:hover,
+          &:focus {
+            background-color: var(--violet-7);
+          }
+        }
+        @include active {
+          &:active {
+            background-color: var(--violet-7);
+          }
+        }
+        svg {
+          flex-shrink: 0;
+          margin-right: 10px;
+        }
+        span {
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+      &__more {
+        position: absolute;
+        right: 0;
+        width: 52px;
+        height: 38px;
+        margin-left: auto;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        @include hover {
+          &:hover,
+          &:focus {
+            &:after {
+              border-color: var(--violet-1);
+            }
+          }
+        }
+        @include active {
+          &:active {
+            &:after {
+              border-color: var(--violet-1);
+            }
+          }
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 10px;
+          height: 10px;
+          border-bottom: 2px solid var(--neutrals-1);
+          border-right: 2px solid var(--neutrals-1);
+          transform: translate(-8px, -5px) rotate(-45deg);
+          transition: 0.2s;
+        }
+      }
+      &__content {
+        display: none;
+        margin-top: 4px;
+        padding-left: 32px;
+        list-style: none;
+      }
+      &__subitem {
+        &:not(:last-child) {
+          margin-bottom: 4px;
+        }
+      }
+      &__sublink {
+        display: block;
+        padding: 0 15px;
+        border-radius: 7px;
+        color: var(--violet-1);
+        transition: background-color 0.2s;
+        line-height: 38px;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        @include hover {
+          &:hover,
+          &:focus {
+            background-color: var(--violet-7);
+          }
+        }
+        @include active {
+          &:active {
+            background-color: var(--violet-7);
+          }
+        }
+      }
+    }
+  }
+  &__text {
+    flex: 0 0 65.7%;
+    p {
+      max-width: 640px;
+    }
+    ul,
+    ol {
+      padding-left: 17px;
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+      li {
+        max-width: 640px;
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    img {
+      width: 100%;
+      margin-bottom: 25px;
+      border-radius: 7px;
+    }
+    iframe,
+    video {
+      width: 100%;
+    }
+  }
+  &__subtitle {
+    margin-bottom: 25px;
+    font-family: 'Manrope';
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    text-transform: uppercase;
+    &:not(:first-child) {
+      margin-top: 50px;
+    }
+  }
+}

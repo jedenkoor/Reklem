@@ -1,0 +1,68 @@
+extends ../template
+
+block variables
+  - var title = 'Карта сайта'
+
+block content
+  style.
+    .content{
+      display: flex;
+      flex-direction: column
+    }
+    .map__container{
+      flex: 1
+    }
+    .title{
+      margin-bottom: 50px
+    }
+    table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td{
+      border: 1px solid var(--neutrals-1);
+    }
+    td a{
+      display: block;
+      padding: 20px;
+      color: var(--neutrals-1)!important;
+    }
+    @media screen and (max-width: 767px) {
+      tr,
+      td {
+        display: block
+      }
+      tr:not(:last-child) td{
+        border-bottom: none
+      }
+      td{
+        width: 100%
+      }
+      td a{
+        padding: 10px;
+        font-size: 16px;
+      }
+    }
+  .container.map__container.margin-section
+    h1.title Карта сайта
+    table
+      tbody
+        tr
+          td 
+            a(href="main.html" target="_blank") Главная
+        tr
+          td 
+            a(href="download.html" target="_blank") Страница скачивания
+        tr
+          td 
+            a(href="documentation.html" target="_blank") Документация
+          td 
+            a(href="documentation-category.html" target="_blank") Документация Категория
+          td 
+            a(href="documentation-subcategory.html" target="_blank") Документация Подкатегория
+        tr
+          td 
+            a(href="text.html" target="_blank") Текстовая страница
+        tr
+          td 
+            a(href="404.html" target="_blank") 404
