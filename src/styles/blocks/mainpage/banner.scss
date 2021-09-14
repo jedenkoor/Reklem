@@ -1,4 +1,131 @@
 .banner {
-  padding-top: 172px;
+  position: relative;
+  margin-bottom: 150px;
   background: var(--grey2);
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: url('../images/icon-banner-decor.svg') center/contain no-repeat;
+  }
+  &__wrap {
+    position: relative;
+    height: 768px;
+    padding-top: 172px;
+    overflow: hidden;
+  }
+  &__container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  &__title {
+    position: relative;
+    max-width: 506px;
+    margin-bottom: 44px;
+    &:before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 35px;
+      z-index: -1;
+      width: 129px;
+      height: 6px;
+      background-color: var(--orange);
+    }
+  }
+  &__text {
+    max-width: 450px;
+    margin-bottom: 28px;
+  }
+  &__link {
+    padding: 12px 30px;
+  }
+  &__gallery {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    width: max-content;
+    padding-left: 0;
+    list-style: none;
+  }
+  &-gallery {
+    &__item {
+      &:nth-child(1) {
+        .banner-gallery__name {
+          left: auto;
+          right: 95px;
+        }
+      }
+      &:nth-child(5) {
+        .banner-gallery__name {
+          left: 85px;
+        }
+      }
+    }
+    &__link {
+      position: relative;
+      display: block;
+      @include hover {
+        &:hover,
+        &:focus {
+          .banner-gallery {
+            &__img {
+              opacity: 0;
+            }
+            &__hover {
+              opacity: 1;
+            }
+            &__name {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      @include active {
+        &:active {
+          .banner-gallery__img {
+            opacity: 0;
+          }
+          .banner-gallery__hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    &__img {
+      transition: opacity 0.3s;
+    }
+    &__hover {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    &__name {
+      position: absolute;
+      bottom: 38px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+      text-align: center;
+      white-space: nowrap;
+    }
+  }
 }

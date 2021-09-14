@@ -63,13 +63,45 @@
     }
     &__link {
       font-weight: 500;
+      transition: color 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          color: var(--green01);
+        }
+        &:active {
+          color: var(--green02);
+        }
+      }
+      @include active {
+        &:active {
+          color: var(--green02);
+        }
+      }
       &--red {
-        color: var(--red);
+        color: var(--red01);
       }
     }
     &__title {
       font-weight: 500;
       color: var(--grey3);
+      transition: color 0.2s;
+      &:is(a) {
+        @include hover {
+          &:hover,
+          &:focus {
+            color: var(--green01);
+          }
+          &:active {
+            color: var(--green02);
+          }
+        }
+        @include active {
+          &:active {
+            color: var(--green02);
+          }
+        }
+      }
     }
     &__line {
       position: absolute;
@@ -88,8 +120,68 @@
       border: none;
       font-weight: 500;
       color: var(--green02);
+      transition: color 0.2s;
+      cursor: pointer;
+      @include hover {
+        &:hover,
+        &:focus {
+          color: var(--green01);
+          path {
+            &[fill] {
+              fill: var(--green01);
+            }
+            &[stroke] {
+              stroke: var(--green01);
+            }
+          }
+        }
+        &:active {
+          color: var(--green02);
+          path {
+            &[fill] {
+              fill: var(--green02);
+            }
+            &[stroke] {
+              stroke: var(--green02);
+            }
+          }
+        }
+      }
+      @include active {
+        &:active {
+          color: var(--green01);
+          path {
+            &[fill] {
+              fill: var(--green01);
+            }
+            &[stroke] {
+              stroke: var(--green01);
+            }
+          }
+        }
+      }
       svg {
         margin-right: 12px;
+      }
+      path {
+        transition: 0.2s;
+      }
+    }
+    &__phone {
+      transition: color 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          color: var(--green01);
+        }
+        &:active {
+          color: var(--green02);
+        }
+      }
+      @include active {
+        &:active {
+          color: var(--green02);
+        }
       }
     }
   }
@@ -117,9 +209,51 @@
       justify-content: center;
       width: 40px;
       height: 40px;
-      background: var(--bg);
-      box-shadow: 0px 4px 15px -4px rgba(0, 0, 0, 0.25);
+      background: var(--white);
+      box-shadow: var(--interface-with-white-back);
       border-radius: 10px;
+      transition: 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          box-shadow: none;
+          path {
+            &[fill] {
+              fill: var(--green01);
+            }
+            &[stroke] {
+              stroke: var(--green01);
+            }
+          }
+        }
+        &:active {
+          box-shadow: var(--interface-inner-shadow);
+          path {
+            &[fill] {
+              fill: var(--green02);
+            }
+            &[stroke] {
+              stroke: var(--green02);
+            }
+          }
+        }
+      }
+      @include active {
+        &:active {
+          box-shadow: var(--interface-inner-shadow);
+          path {
+            &[fill] {
+              fill: var(--green02);
+            }
+            &[stroke] {
+              stroke: var(--green02);
+            }
+          }
+        }
+      }
+      path {
+        transition: 0.2s;
+      }
     }
   }
 }

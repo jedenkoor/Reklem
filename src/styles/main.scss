@@ -3,9 +3,11 @@
 @import 'variables/indents';
 
 :root {
-  --text-color: #000000;
-  --bg: #ffffff;
-  --red: #ff2f54;
+  --black: #000000;
+  --white: #ffffff;
+  --input-active: rgba(255, 255, 255, 0.8);
+  --red01: #ff2f54;
+  --red02: #e62a4c;
   --green01: #10bb87;
   --green02: #487b6c;
   --orange: #ffa630;
@@ -13,12 +15,21 @@
   --grey: #e5e5e5;
   --grey2: #f2f2f2;
   --grey3: #b3b3b3;
+  --head-line: linear-gradient(180deg, #4d4d4d 0%, #262626 100%);
+  --decorative-icon: rgba(0, 0, 0, 0.07);
+  --interface-with-white-back: 0px 4px 7px rgba(0, 0, 0, 0.15);
+  --interface-inner-shadow: inset 4px 4px 10px -7px rgba(0, 0, 0, 0.25);
+  --interface-little: 0px 2px 4px -4px rgba(0, 0, 0, 0.15);
+  --accent-unit-with-green-back: 0px 9px 25px -4px rgba(72, 123, 108, 0.5);
+  --accent-unit: 0px 9px 25px rgba(0, 0, 0, 0.17);
+  --accent-unit-invers: 0px -9px 25px rgba(0, 0, 0, 0.17);
+  --decorative-unit: 0px 10px 40px rgba(0, 0, 0, 0.15);
   --selection-color: rgba(16, 187, 135, 0.99);
   --img-selection-color: rgba(16, 187, 135, 0.5);
 }
 
 ::selection {
-  color: var(--bg);
+  color: var(--white);
   background-color: var(--selection-color);
 }
 
@@ -42,18 +53,18 @@ img::-moz-selection {
     border-radius: 2px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--bg);
+    background: var(--white);
   }
 }
 
 html {
-  background-color: var(--bg);
+  background-color: var(--white);
 }
 
 body {
   height: 6936px;
   font-family: 'Inter', sans-serif;
-  color: var(--text-color);
+  color: var(--black);
   font-size: 14px;
   line-height: 20px;
   text-rendering: optimizeLegibility;
@@ -174,54 +185,91 @@ input[type='number'] {
   background: var(--green01);
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 9px 25px -4px rgba(72, 123, 108, 0.5);
+  box-shadow: var(--accent-unit-with-green-back);
   text-align: center;
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
-  color: var(--bg);
-  transition: background 0.2s, border-color 0.2s, transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  color: var(--white);
+  transition: 0.2s;
   cursor: pointer;
   @include hover {
     &:hover,
     &:focus {
+      background: var(--red01);
+      box-shadow: var(--interface-with-white-back);
     }
     &:active {
-      transform: translate3d(0, 2px, 0) scale(0.95);
+      background: var(--red02);
+      box-shadow: var(--interface-inner-shadow);
+      color: var(--input-active);
     }
   }
   @include active {
     &:active {
-      transform: translate3d(0, 2px, 0) scale(0.95);
+      background: var(--red02);
+      box-shadow: var(--interface-inner-shadow);
+      color: var(--input-active);
     }
   }
 }
 
 .secondary-btn {
   display: inline-block;
-  background: var(--bg);
+  background: var(--white);
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 4px 7px -4px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--interface-with-white-back);
   text-align: center;
   font-weight: normal;
   font-size: 12px;
   line-height: 16px;
-  color: var(--text-color);
-  transition: background 0.2s, border-color 0.2s, transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+  color: var(--black);
+  transition: 0.2s;
   cursor: pointer;
   @include hover {
     &:hover,
     &:focus {
+      box-shadow: none;
+      color: var(--green01);
+      path {
+        &[fill] {
+          fill: var(--green01);
+        }
+        &[stroke] {
+          stroke: var(--green01);
+        }
+      }
     }
     &:active {
-      transform: translate3d(0, 2px, 0) scale(0.95);
+      box-shadow: var(--interface-inner-shadow);
+      color: var(--green02);
+      path {
+        &[fill] {
+          fill: var(--green02);
+        }
+        &[stroke] {
+          stroke: var(--green02);
+        }
+      }
     }
   }
   @include active {
     &:active {
-      transform: translate3d(0, 2px, 0) scale(0.95);
+      box-shadow: var(--interface-inner-shadow);
+      color: var(--green02);
+      path {
+        &[fill] {
+          fill: var(--green02);
+        }
+        &[stroke] {
+          stroke: var(--green02);
+        }
+      }
     }
+  }
+  path {
+    transition: 0.2s;
   }
 }
 
@@ -246,31 +294,31 @@ input[type='text'],
 textarea {
   width: 100%;
   border: none;
-  background: var(--neutrals-12);
-  box-shadow: 0px 4px 7px -4px rgba(0, 0, 0, 0.15);
+  background: var(--white);
+  box-shadow: var(--interface-with-white-back);
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  color: var(--text-color);
+  color: var(--black);
   transition: 0.2s;
   &::placeholder {
-    color: #d9d9d9;
+    color: var(--grey);
   }
   &:hover,
   &:focus {
+    box-shadow: var(--interface-little);
   }
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
-    box-shadow: 0 0 0px 1000px var(--bg) inset;
-    -webkit-box-shadow: 0 0 0px 1000px var(--bg) inset;
+    box-shadow: 0 0 0px 1000px var(--white) inset;
+    -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
     transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: var(--text-color);
+    -webkit-text-fill-color: var(--black);
   }
   &.input-err {
-  }
-  &.input-border {
+    color: var(--red01);
   }
 }
 
@@ -283,3 +331,4 @@ input[type='text'] {
 @import 'blocks/common/header';
 @import 'blocks/common/footer';
 @import 'blocks/mainpage/banner';
+@import 'blocks/mainpage/about';

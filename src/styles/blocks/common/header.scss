@@ -5,7 +5,7 @@
   top: 0;
   padding: 20px 0;
   border-bottom: 2px solid #e6e6e6;
-  background-color: var(--bg);
+  background-color: var(--white);
   transition: background 0.2s;
   &--banner {
     background-color: var(--grey2);
@@ -17,6 +17,44 @@
   }
   &__logo {
     display: flex;
+    @include hover {
+      &:hover,
+      &:focus {
+        path {
+          &[fill] {
+            fill: var(--green01);
+          }
+          &[stroke] {
+            stroke: var(--green01);
+          }
+        }
+      }
+      &:active {
+        path {
+          &[fill] {
+            fill: var(--green02);
+          }
+          &[stroke] {
+            stroke: var(--green02);
+          }
+        }
+      }
+    }
+    @include active {
+      &:active {
+        path {
+          &[fill] {
+            fill: var(--green02);
+          }
+          &[stroke] {
+            stroke: var(--green02);
+          }
+        }
+      }
+    }
+    path {
+      transition: 0.2s;
+    }
   }
   &__list {
     position: absolute;
@@ -41,6 +79,48 @@
       border: none;
       cursor: pointer;
       font-weight: 500;
+      transition: color 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          color: var(--green01);
+          path {
+            &[fill] {
+              fill: var(--green01);
+            }
+            &[stroke] {
+              stroke: var(--green01);
+            }
+          }
+        }
+        &:active {
+          color: var(--green02);
+          path {
+            &[fill] {
+              fill: var(--green02);
+            }
+            &[stroke] {
+              stroke: var(--green02);
+            }
+          }
+        }
+      }
+      @include active {
+        &:active {
+          color: var(--green02);
+          path {
+            &[fill] {
+              fill: var(--green02);
+            }
+            &[stroke] {
+              stroke: var(--green02);
+            }
+          }
+        }
+      }
+      path {
+        transition: 0.2s;
+      }
     }
   }
   &__btns {
