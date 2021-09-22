@@ -15,11 +15,12 @@
   --grey: #e5e5e5;
   --grey2: #f2f2f2;
   --grey3: #b3b3b3;
+  --grey4: #fafafa;
   --head-line: linear-gradient(180deg, #4d4d4d 0%, #262626 100%);
   --decorative-icon: rgba(0, 0, 0, 0.07);
   --interface-with-white-back: 0px 4px 7px rgba(0, 0, 0, 0.15);
   --interface-inner-shadow: inset 4px 4px 10px -7px rgba(0, 0, 0, 0.25);
-  --interface-little: 0px 2px 4px -4px rgba(0, 0, 0, 0.15);
+  --interface-little: 0px 2px 3px 0px rgb(0 0 0 / 15%);
   --accent-unit-with-green-back: 0px 9px 25px -4px rgba(72, 123, 108, 0.5);
   --accent-unit: 0px 9px 25px rgba(0, 0, 0, 0.17);
   --accent-unit-invers: 0px -9px 25px rgba(0, 0, 0, 0.17);
@@ -41,7 +42,7 @@ img::-moz-selection {
   background-color: var(--img-selection-color);
 }
 
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1200px) {
   ::-webkit-scrollbar {
     width: 4px;
   }
@@ -59,10 +60,31 @@ img::-moz-selection {
 
 html {
   background-color: var(--white);
+  overflow-x: hidden;
+  &.fixed {
+    overflow: hidden;
+  }
+  &.compensate-for-scrollbar {
+    margin-right: 4px;
+    @-moz-document url-prefix() {
+      margin-right: 17px;
+    }
+    .header {
+      padding-right: 4px;
+      @-moz-document url-prefix() {
+        padding-right: 17px;
+      }
+      &__mobmenu {
+        left: calc(50% - 280px);
+        @-moz-document url-prefix() {
+          left: calc(50% - 293px);
+        }
+      }
+    }
+  }
 }
 
 body {
-  height: 6936px;
   font-family: 'Inter', sans-serif;
   color: var(--black);
   font-size: 14px;
@@ -70,6 +92,12 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: antialiased;
+  transition: opacity 0.2s;
+  overflow-x: hidden;
+  @include w767 {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 
 .wrapper {
@@ -98,6 +126,9 @@ body {
 
 .margin-section {
   margin-bottom: $margin-section;
+  @include w767 {
+    margin-bottom: $mobile-margin-section;
+  }
 }
 
 *,
@@ -127,7 +158,7 @@ a {
   color: inherit;
   text-decoration: none;
   &:not([class]) {
-    margin-left: 5px;
+    margin-left: 4px;
     color: var(--green01);
     @include hover {
       &:hover,
@@ -178,6 +209,11 @@ input[type='number'] {
   font-weight: 600;
   font-size: 36px;
   line-height: 44px;
+  @include w767 {
+    margin-bottom: 50px;
+    font-size: 20px;
+    line-height: 28px;
+  }
 }
 
 .primary-btn {
@@ -212,6 +248,15 @@ input[type='number'] {
       color: var(--input-active);
     }
   }
+  path {
+    transition: 0.2s;
+    &[fill] {
+      fill: var(--white);
+    }
+    &[stroke] {
+      stroke: var(--white);
+    }
+  }
 }
 
 .secondary-btn {
@@ -232,6 +277,7 @@ input[type='number'] {
     &:focus {
       box-shadow: none;
       color: var(--green01);
+      background: var(--grey4);
       path {
         &[fill] {
           fill: var(--green01);
@@ -244,6 +290,7 @@ input[type='number'] {
     &:active {
       box-shadow: var(--interface-inner-shadow);
       color: var(--green02);
+      background: var(--grey4);
       path {
         &[fill] {
           fill: var(--green02);
@@ -258,6 +305,7 @@ input[type='number'] {
     &:active {
       box-shadow: var(--interface-inner-shadow);
       color: var(--green02);
+      background: var(--grey4);
       path {
         &[fill] {
           fill: var(--green02);
@@ -290,7 +338,11 @@ input[type='number'] {
   }
 }
 
+input:not([type]),
 input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='password'],
 textarea {
   width: 100%;
   border: none;
@@ -319,10 +371,23 @@ textarea {
   }
   &.input-err {
     color: var(--red01);
+    &::placeholder {
+      color: var(--red01);
+    }
+  }
+  &.input-ok {
+    color: var(--black);
+    &::placeholder {
+      color: var(--grey);
+    }
   }
 }
 
-input[type='text'] {
+input:not([type]),
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='password'] {
   height: 40px;
   padding: 0 15px;
   border-radius: 10px;
@@ -330,5 +395,14 @@ input[type='text'] {
 
 @import 'blocks/common/header';
 @import 'blocks/common/footer';
+@import 'blocks/common/form';
 @import 'blocks/mainpage/banner';
 @import 'blocks/mainpage/about';
+@import 'blocks/mainpage/constructor';
+@import 'blocks/mainpage/goods';
+@import 'blocks/mainpage/services';
+@import 'blocks/mainpage/categories';
+@import 'blocks/mainpage/reviews';
+@import 'blocks/mainpage/news';
+@import 'blocks/mainpage/faq';
+@import 'blocks/mainpage/help';

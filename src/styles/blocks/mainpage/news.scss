@@ -1,0 +1,137 @@
+.news {
+  @include w767 {
+    margin-bottom: 100px;
+  }
+  &__title {
+    position: relative;
+    max-width: 480px;
+    @include w767 {
+      max-width: 250px;
+    }
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      height: 6px;
+      background-color: var(--orange);
+    }
+    &:before {
+      left: 239px;
+      top: 35px;
+      width: 146px;
+      @include w767 {
+        top: 21px;
+        left: 133px;
+        width: 78px;
+        height: 4px;
+      }
+    }
+    &:after {
+      left: 0;
+      top: 79px;
+      width: 157px;
+      @include w767 {
+        top: 49px;
+        width: 87px;
+        height: 4px;
+      }
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 32px));
+    grid-gap: 0 64px;
+    margin-bottom: 16px;
+    padding-left: 0;
+    list-style: none;
+    @include w1023 {
+      grid-template-columns: repeat(2, calc(50% - 28px));
+      grid-gap: 56px;
+    }
+    @include w767 {
+      grid-template-columns: auto;
+      grid-gap: 30px;
+      margin-bottom: 0;
+    }
+  }
+  &-item {
+    &__link {
+      display: block;
+      padding: 28px 0;
+      border-top: 2px solid var(--grey2);
+      @include w767 {
+        padding: 28px 0 17px;
+      }
+      @include hover {
+        &:hover,
+        &:focus {
+          path {
+            fill: var(--green01);
+          }
+        }
+      }
+      @include active {
+        &:active {
+          path {
+            fill: var(--green02);
+          }
+        }
+      }
+    }
+    &__title {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      @include w767 {
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+    &__text {
+      margin-bottom: 28px;
+      color: var(--grey3);
+      @include w1023 {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+      }
+      @include w767 {
+        margin-bottom: 17px;
+      }
+    }
+    &__row {
+      display: flex;
+      align-items: center;
+    }
+    &__date {
+      margin-right: 29px;
+      font-weight: 600;
+      color: var(--green01);
+    }
+    &__btn {
+      display: flex;
+      svg {
+        @include w767 {
+          width: 24px;
+        }
+      }
+      path {
+        transition: 0.2s;
+      }
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    margin-left: auto;
+    padding: 12px 30px;
+    svg {
+      margin-left: 11px;
+    }
+  }
+}

@@ -1,0 +1,105 @@
+.services {
+  margin-bottom: 150px;
+  @include w767 {
+    margin-bottom: 100px;
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 64px;
+    @include w767 {
+      justify-content: space-between;
+      margin-bottom: 50px;
+    }
+  }
+  &__title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    @include w767 {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 28px;
+    @include w767 {
+      margin-left: 0;
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 6.66%;
+    padding-left: 0;
+    list-style: none;
+    @include w1023 {
+      grid-gap: 0;
+    }
+    @include w767 {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 23px 0;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include w1023 {
+      padding-right: 10px;
+    }
+  }
+  &-item {
+    &__icon {
+      width: 50px;
+      height: 50px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-bottom: 10px;
+    }
+    &__title {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      @include w767 {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+    &__text {
+      margin-bottom: 28px;
+      color: var(--grey3);
+      @include w1023 {
+        margin-bottom: 40px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+      }
+      @include w767 {
+        margin-bottom: 20px;
+      }
+    }
+    &__link {
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+      padding: 12px 30px;
+      @include w767 {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+      svg {
+        margin-left: 10px;
+      }
+    }
+  }
+}

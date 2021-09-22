@@ -1,0 +1,185 @@
+.constructor {
+  overflow: hidden;
+  padding-bottom: 100px;
+  @include w1023 {
+    padding-bottom: 150px;
+  }
+  @include w767 {
+    padding-bottom: 100px;
+  }
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    @include w1023 {
+      display: block;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 34px;
+      width: 20px;
+      height: 21px;
+      background: url('../images/icon-constructor-decor.svg') center/contain no-repeat;
+      @include w1023 {
+        display: none;
+      }
+    }
+  }
+  &__col {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 50%;
+    margin-top: 110px;
+    margin-right: -224px;
+    @include w1023 {
+      width: 480px;
+      flex: initial;
+      margin-top: 0;
+      margin-right: 0;
+    }
+    @include w767 {
+      width: auto;
+    }
+  }
+  &__img1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    background: var(--white);
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: var(--decorative-unit);
+    .reviews-bot__headline {
+      width: 100%;
+      margin-bottom: auto;
+    }
+    img {
+      margin-bottom: auto;
+      max-height: calc(100% - 34px);
+    }
+    @include w1023 {
+      transform: translateX(-2px);
+    }
+    @include w767 {
+      transform: none;
+    }
+  }
+  &__img2 {
+    position: relative;
+    max-height: 317px;
+    margin-top: -226px;
+    margin-left: 60px;
+    box-shadow: var(--decorative-unit);
+    @include w1023 {
+      position: absolute;
+      top: 24px;
+      right: -146px;
+      margin: 0;
+    }
+    @include w767 {
+      top: 50px;
+      right: auto;
+      left: 65px;
+    }
+  }
+  &__content {
+    position: relative;
+    flex: 0 0 100vw;
+    padding: 50px 0 50px 256px;
+    background-color: var(--green01);
+    border-radius: 28px 0px 0px 28px;
+    @include w1023 {
+      transform: translateX(-34px);
+      width: 100vw;
+      flex: initial;
+      margin-top: -150px;
+      padding: 241px 34px 50px 50vw;
+      border-radius: 0;
+    }
+    @include w767 {
+      transform: translateX(-10px);
+      padding: 267px 10px 50px;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 658px;
+      transform: translateY(-50%);
+      width: 100%;
+      height: calc(100%);
+      background: url('../images/constructor-bg.png') left center no-repeat;
+      @include w1023 {
+        top: auto;
+        right: calc(62.76% - 16px);
+        bottom: 22px;
+        left: auto;
+        transform: none;
+        width: 100%;
+        height: 322px;
+        background: url('../images/constructor-bg-tablet.png') right center repeat-x;
+      }
+      @include w767 {
+        display: none;
+      }
+    }
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 350px;
+  }
+  &__title {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 44px;
+    color: var(--white);
+    @include w1023 {
+      max-width: 306px;
+    }
+    @include w767 {
+      margin-bottom: 28px;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 35px;
+      left: 221px;
+      width: 85px;
+      height: 6px;
+      background-color: var(--green02);
+      @include w767 {
+        top: 21px;
+        left: 123px;
+        width: 48px;
+        height: 4px;
+      }
+    }
+  }
+  &__text {
+    margin-bottom: 28px;
+    color: var(--green02);
+    @include w767 {
+      margin-bottom: 20px;
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 12px 30px;
+    &.disabled {
+      pointer-events: none;
+      color: var(--grey3);
+    }
+    svg {
+      margin-left: 11px;
+    }
+  }
+}

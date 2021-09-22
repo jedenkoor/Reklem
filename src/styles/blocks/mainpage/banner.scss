@@ -2,6 +2,9 @@
   position: relative;
   margin-bottom: 150px;
   background: var(--grey2);
+  @include w767 {
+    margin-bottom: 70px;
+  }
   &:after {
     content: '';
     position: absolute;
@@ -17,6 +20,13 @@
     height: 768px;
     padding-top: 172px;
     overflow: hidden;
+    @include w1023 {
+      height: auto;
+      padding-top: 232px;
+    }
+    @include w767 {
+      padding-top: 142px;
+    }
   }
   &__container {
     position: relative;
@@ -24,12 +34,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: max-content;
     text-align: center;
+    @include w767 {
+      width: auto;
+    }
   }
   &__title {
     position: relative;
     max-width: 506px;
     margin-bottom: 44px;
+    @include w767 {
+      max-width: 300px;
+      margin-bottom: 28px;
+    }
     &:before {
       content: '';
       position: absolute;
@@ -39,11 +57,21 @@
       width: 129px;
       height: 6px;
       background-color: var(--orange);
+      @include w767 {
+        right: 10px;
+        top: 21px;
+        width: 72px;
+        height: 4px;
+      }
     }
   }
   &__text {
     max-width: 450px;
     margin-bottom: 28px;
+    @include w767 {
+      max-width: 290px;
+      margin-bottom: 20px;
+    }
   }
   &__link {
     padding: 12px 30px;
@@ -58,16 +86,49 @@
     width: max-content;
     padding-left: 0;
     list-style: none;
+    @include w1023 {
+      position: relative;
+      margin-top: 28px;
+    }
+    @include w767 {
+      margin-top: 64px;
+      margin-bottom: 22px;
+    }
   }
   &-gallery {
     &__item {
       &:nth-child(1) {
+        @include w767 {
+          display: none;
+        }
         .banner-gallery__name {
           left: auto;
           right: 95px;
         }
       }
+      &:nth-child(2),
+      &:nth-child(4) {
+        @include w1023 {
+          display: none;
+        }
+        @include w767 {
+          display: block;
+        }
+      }
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        .banner-gallery__link {
+          width: 256px;
+          @include w767 {
+            width: 107px;
+          }
+        }
+      }
       &:nth-child(5) {
+        @include w767 {
+          display: none;
+        }
         .banner-gallery__name {
           left: 85px;
         }
@@ -94,11 +155,16 @@
       }
       @include active {
         &:active {
-          .banner-gallery__img {
-            opacity: 0;
-          }
-          .banner-gallery__hover {
-            opacity: 1;
+          .banner-gallery {
+            &__img {
+              opacity: 0;
+            }
+            &__hover {
+              opacity: 1;
+            }
+            &__name {
+              opacity: 1;
+            }
           }
         }
       }
@@ -126,6 +192,10 @@
       transition: opacity 0.3s;
       text-align: center;
       white-space: nowrap;
+      @include w767 {
+        bottom: 10px;
+        font-size: 10px;
+      }
     }
   }
 }

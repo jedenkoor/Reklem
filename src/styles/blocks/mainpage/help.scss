@@ -1,0 +1,87 @@
+.help {
+  margin-bottom: 150px;
+  @include w767 {
+    margin-bottom: 100px;
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 32px));
+    grid-gap: 64px;
+    padding: 38px 0 50px;
+    background-color: var(--green01);
+    border-radius: 28px;
+    overflow: hidden;
+    background-image: url('../images/help-bg.png');
+    background-position: 709px center;
+    background-repeat: no-repeat;
+    @include w1023 {
+      transform: translateX(-34px);
+      grid-template-columns: repeat(2, 50%);
+      grid-gap: 0;
+      width: 100vw;
+      padding-left: 34px;
+      padding-right: 34px;
+      border-radius: 0;
+      background-position: 593px center;
+    }
+    @include w767 {
+      transform: translateX(-10px);
+      grid-template-columns: auto;
+      padding: 40px 10px 50px;
+      background-position: 45.4vw 172px;
+    }
+  }
+  &__col {
+    &:first-child {
+      padding-top: 12px;
+      padding-left: 96px;
+      @include w1023 {
+        padding-left: 0;
+      }
+      @include w767 {
+        padding-top: 0;
+      }
+    }
+    &:last-child {
+      padding-right: 124px;
+      @include w1023 {
+        padding-right: 0;
+        padding-left: 28px;
+      }
+      @include w767 {
+        padding-top: 32px;
+        padding-left: 0;
+      }
+    }
+  }
+  &__title {
+    position: relative;
+    z-index: 2;
+    width: max-content;
+    margin-bottom: 44px;
+    color: var(--white);
+    @include w767 {
+      margin-bottom: 28px;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      bottom: 3px;
+      right: 0;
+      width: 169px;
+      height: 6px;
+      background-color: var(--green02);
+      @include w767 {
+        width: 92px;
+        height: 4px;
+      }
+    }
+  }
+  &__text {
+    color: var(--green02);
+    a {
+      color: var(--green02);
+    }
+  }
+}
