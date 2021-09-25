@@ -42,7 +42,7 @@
   }
   &__title {
     position: relative;
-    max-width: 506px;
+    max-width: 530px;
     margin-bottom: 44px;
     @include w767 {
       max-width: 300px;
@@ -51,14 +51,14 @@
     &:before {
       content: '';
       position: absolute;
-      right: 0;
+      right: 10px;
       top: 35px;
       z-index: -1;
       width: 129px;
       height: 6px;
       background-color: var(--orange);
       @include w767 {
-        right: 10px;
+        right: 8px;
         top: 21px;
         width: 72px;
         height: 4px;
